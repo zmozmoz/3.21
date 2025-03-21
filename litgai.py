@@ -508,17 +508,17 @@ elif st.session_state.page == "📏 范围查询":
                 axes[0].set_xlabel(x_label)
                 axes[0].set_ylabel("Thermal Conductivity (W/m·K)")
                 axes[0].legend(loc='upper left')  # **图例固定在左上角**
-                axes[0].set_title("热导率")
+                axes[0].set_title("Thermal Conductivity")
 
                 axes[1].set_xlabel(x_label)
                 axes[1].set_ylabel("Viscosity (μPa·s)")
                 axes[1].legend(loc='upper left')  # **图例固定在左上角**
-                axes[1].set_title("粘度")
+                axes[1].set_title("Viscosity")
 
                 axes[2].set_xlabel(x_label)
-                axes[2].set_ylabel("扩散系数 (m$^{2}$/s)")
+                axes[2].set_ylabel("Diffusion (m$^{2}$/s)")
                 axes[2].legend(loc='upper left')  # **图例固定在左上角**
-                axes[2].set_title("扩散系数")
+                axes[2].set_title("Diffusion")
                 plt.rcParams['font.sans-serif'] = ['SimHei']  # 使用黑体
                 plt.rcParams['axes.unicode_minus'] = False  # 解决负号显示异常
                 plt.tight_layout()
