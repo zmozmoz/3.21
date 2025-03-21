@@ -17,7 +17,7 @@ import plotly.express as px
 # 设置页面标题和图标
 st.set_page_config(
     page_title="Digital Hydrogen-P",
-    page_icon=r"D:\pythonProject3\streamlit\f8523a5d627f3875452fa1ece3b4d30.png",
+    page_icon=r"f8523a5d627f3875452fa1ece3b4d30.png",
     initial_sidebar_state="expanded"
 )
 
@@ -136,7 +136,7 @@ def image_to_base64(image_path):
         return base64.b64encode(img_file.read()).decode()
 
 
-logo_path = r"D:\pythonProject3\streamlit\f8523a5d627f3875452fa1ece3b4d30.png"
+logo_path = r"f8523a5d627f3875452fa1ece3b4d30.png"
 your_base64_logo = image_to_base64(logo_path)
 
 st.sidebar.markdown(
@@ -253,9 +253,9 @@ def generate_table(min_pressure, max_pressure, step_size, min_temperature, max_t
         else:
             temperatures.append(round(t, 2))
 
-    thermal_df = load_data(r'D:\pythonProject3\streamlit\thermal_conductivity.csv')
-    viscosity_df = load_data(r'D:\pythonProject3\streamlit\viscosity.csv')
-    diffusion_df = load_data(r'D:\pythonProject3\streamlit\kuosanxishu.csv')
+    thermal_df = load_data(r'thermal_conductivity.csv')
+    viscosity_df = load_data(r'viscosity.csv')
+    diffusion_df = load_data(r'kuosanxishu.csv')
 
     table_data = []
     for pressure in pressures:
@@ -296,7 +296,7 @@ if st.session_state.page == "🏠 Home":
             }
         </style>
     """, unsafe_allow_html=True)
-    st.image(r"D:\pythonProject3\streamlit\8c3351f1e7b958ef4fdc8dfb9d5d99f.png", width=400)
+    st.image(r"8c3351f1e7b958ef4fdc8dfb9d5d99f.png", width=400)
     st.title("Digital Hydrogen-P")
     st.write("""
         **欢迎来到 Digital Hydrogen-P**  
@@ -558,9 +558,9 @@ elif st.session_state.page == "📌 定值查询":
             st.warning("请输入压力和温度")
 
         else:
-            thermal_df = load_data(r'D:\pythonProject3\streamlit\thermal_conductivity.csv')
-            viscosity_df = load_data(r'D:\pythonProject3\streamlit\viscosity.csv')
-            diffusion_df = load_data(r'D:\pythonProject3\streamlit\kuosanxishu.csv')
+            thermal_df = load_data(r'thermal_conductivity.csv')
+            viscosity_df = load_data(r'viscosity.csv')
+            diffusion_df = load_data(r'kuosanxishu.csv')
             error_occurred = False
 
             actual_method = METHOD_MAPPING[interpolation_method]  # <-- 添加映射
@@ -676,8 +676,8 @@ elif st.session_state.page == "🔬 实验数据查询":
     if st.session_state.experiment_mode == "实验数据":
 
         # 加载实验数据
-        thermal_df = pd.read_csv(r'D:\pythonProject3\streamlit\shiyanredaol.csv')
-        viscosity_df = pd.read_csv(r'D:\pythonProject3\streamlit\shiyanniandu.csv')
+        thermal_df = pd.read_csv(r'shiyanredaol.csv')
+        viscosity_df = pd.read_csv(r'shiyanniandu.csv')
 
         # 获取所有文章标题
         thermal_article_titles = thermal_df['redaoarticle title'].unique()
@@ -758,10 +758,10 @@ elif st.session_state.page == "🔬 实验数据查询":
 
         # 加载模型
         try:
-            rf_model_thermal = joblib.load('D:\pythonProject3\streamlit/thermal_conductivity_rf.pkl')
-            lin_model_thermal = joblib.load('D:\pythonProject3\streamlit/thermal_conductivity_lin.pkl')
-            rf_model_viscosity = joblib.load('D:\pythonProject3\streamlit/viscosity_rf.pkl')
-            lin_model_viscosity = joblib.load('D:\pythonProject3\streamlit/viscosity_lin.pkl')
+            rf_model_thermal = joblib.load('thermal_conductivity_rf.pkl')
+            lin_model_thermal = joblib.load('thermal_conductivity_lin.pkl')
+            rf_model_viscosity = joblib.load('viscosity_rf.pkl')
+            lin_model_viscosity = joblib.load('viscosity_lin.pkl')
         except Exception as e:
             st.error(f"模型加载失败: {str(e)}")
             st.stop()
@@ -878,8 +878,8 @@ elif st.session_state.page == "🔬 实验数据查询":
         if st.button("📊 机器学习预测准确性分析"):
             try:
                 # 1. 加载实验数据（分别读取）
-                df_viscosity_conditions = pd.read_csv(r'D:\pythonProject3\streamlit\shiyanniandu.csv')
-                df_thermal_conditions = pd.read_csv(r'D:\pythonProject3\streamlit\shiyanredaol.csv')
+                df_viscosity_conditions = pd.read_csv(r'shiyanniandu.csv')
+                df_thermal_conditions = pd.read_csv(r'shiyanredaol.csv')
 
                 # 2. 确保数据类型匹配
                 df_viscosity_conditions[['pressure', 'temperature']] = df_viscosity_conditions[
