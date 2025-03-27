@@ -326,11 +326,11 @@ elif st.session_state.page == "📏 范围查询":
     st.title("📏 范围查询")
     col1, col2 = st.columns(2)
     with col1:
-        min_pressure = st.number_input("最小压力 (MPa) ", min_value=0.0, step=5.0, format="%.1f", value=None,help="请输入 40 - 200 MPa 之间的数值")
-        max_pressure = st.number_input("最大压力 (MPa) ", min_value=min_pressure if min_pressure else 0.0, step=5.0,format="%.1f", value=None, help="请输入 40 - 200 MPa 之间的数值")
+        min_pressure = st.number_input("最小压力 (MPa) ", min_value=40.0, max_value=200.0, step=5.0, format="%.1f", value=None,help="请输入 40 - 200 MPa 之间的数值")
+        max_pressure = st.number_input("最大压力 (MPa) ", min_value=min_pressure if min_pressure else 40.0, step=5.0,format="%.1f", value=None, help="请输入 40 - 200 MPa 之间的数值")
     with col2:
-        min_temperature = st.number_input("最小温度 (K) ", min_value=0.0, step=5.0, format="%.1f", value=None,help="请输入 300 - 700 K 之间的数值")
-        max_temperature = st.number_input("最大温度 (K) ", min_value=min_temperature if min_temperature else 0.0,step=5.0, format="%.1f", value=None, help="请输入 300 - 700 K 之间的数值")
+        min_temperature = st.number_input("最小温度 (K) ", min_value=300.0, max_value=700.0, step=5.0, format="%.1f", value=None,help="请输入 300 - 700 K 之间的数值")
+        max_temperature = st.number_input("最大温度 (K) ", min_value=min_temperature if min_temperature else 300.0,step=5.0, format="%.1f", value=None, help="请输入 300 - 700 K 之间的数值")
     step_size = st.selectbox("步长", [1, 2, 5, 10, 20, 50, 100])
     interpolation_method = st.selectbox(
         "插值方法",
@@ -534,9 +534,9 @@ elif st.session_state.page == "📌 定值查询":
     col_pres_temp = st.columns(2)
 
     with col_pres_temp[0]:
-        pressure = st.number_input("输入压力 (MPa) ", min_value=0.0, step=5.0, format="%.2f", value=0.0,help="请输入 40 - 200 MPa 之间的数值")
+        pressure = st.number_input("输入压力 (MPa) ",min_value=40.0,max_value=200.0,step=5.0,format="%.2f",value=40.0,help="请输入 40 - 200 MPa 之间的数值")
     with col_pres_temp[1]:
-        temperature = st.number_input("输入温度 (K) ", min_value=0.0, step=5.0, format="%.1f", value=0.0,help="请输入 300 - 700 K 之间的数值")
+        temperature = st.number_input("输入温度 (K) ",min_value=300.0, step=5.0,format="%.1f",value=300.0,help="请输入 300 - 700 K 之间的数值")
 
     # 第二行：插值方法和查询按钮并排
     col_method_btn = st.columns([2, 2])
