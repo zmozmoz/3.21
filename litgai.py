@@ -136,7 +136,7 @@ def image_to_base64(image_path):
         return base64.b64encode(img_file.read()).decode()
 
 
-logo_path = r"f8523a5d627f3875452fa1ece3b4d30."
+logo_path = r"f8523a5d627f3875452fa1ece3b4d30.png"
 your_base64_logo = image_to_base64(logo_path)
 
 st.sidebar.markdown(
