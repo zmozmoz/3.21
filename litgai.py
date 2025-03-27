@@ -296,7 +296,7 @@ if st.session_state.page == "🏠 Home":
             }
         </style>
     """, unsafe_allow_html=True)
-    st.image(r"8c3351f1e7b958ef4fdc8dfb9d5d99f.png", width=400)
+    st.image(r"4d8e4b158c47a8a9498496aa8bb051d.png", width=400)
     st.title("Digital Hydrogen-P")
     st.write("""
         **欢迎来到 Digital Hydrogen-P**  
