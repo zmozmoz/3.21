@@ -199,7 +199,7 @@ def interpolate_property(pressure, temperature, data_df, property_name, method='
         data_df[col] = pd.to_numeric(data_df[col], errors='coerce')
 
     # 移除包含 NaN 的行
-    data_df.dropna(subset=required_cols, inplace=True)
+    #data_df.dropna(subset=required_cols, inplace=True)
 
     # 获取网格数据
     points = data_df[['pressure', 'temperature']].values
