@@ -136,13 +136,13 @@ def image_to_base64(image_path):
         return base64.b64encode(img_file.read()).decode()
 
 
-logo_path = r"f8523a5d627f3875452fa1ece3b4d30.png"
+logo_path = r"8c3351f1e7b958ef4fdc8dfb9d5d99f.png"
 your_base64_logo = image_to_base64(logo_path)
 
 st.sidebar.markdown(
     f"""
     <div style="text-align: center;">
-        <img src="data:image/png;base64,{your_base64_logo}" width="400"/>
+        <img src="data:image/png;base64,{your_base64_logo}" width="300"/>
         <h1 style="font-size: 27px; font-weight: bold; margin-top: 10px;">Digital Hydrogen-P</h1>
     </div>
     """,
